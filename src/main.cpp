@@ -23,6 +23,8 @@ bool clientConnected = false;
 bool voltageGood = false;
 bool serialMsgSent = true;
 
+float goodVoltage = 11.50;
+
 // 15 works on 3.3v
 // 10, 12, 13, 14 work when on ground
 int RIGHT_F_PIN = 12; // D6
@@ -53,8 +55,6 @@ int lr_dest = 0;
 int fastSpeed = 800;
 int slowSpeed = 500;
 int max_speed = slowSpeed;
-
-float goodVoltage = 12.00;
 
 int delaySpeed = 1;
 //int delaySpeed = 1000;
@@ -175,15 +175,22 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t *payload, int length)
 
 void readVoltage() {
   int v = analogRead(A0);
-  float v2 = v / 6.35;
+  float v2 = v / 6.56;
   float v3 = v2 / 10;
 
   String s = "VOLTAGE=";
   String msg = s + v3;
+  String s3 = " | analogVal=";
+  s3 = s3 + v;
+  msg = msg + s3;
   Serial.println(msg);
 
   if (v3 > goodVoltage) {
     voltageGood = true;
+    Serial.println("Voltage is good");
+  } else {
+    voltageGood = false;
+    Serial.println("Voltage is BAAAD");
   }
 
   if (clientConnected) {
@@ -421,7 +428,13 @@ void loop()
   if (!clientConnected) {
     checkButtons();
   }
+  if (!voltageGood) {
+    rf_dest = 0;
+    rr_dest = 0;
 
+    lf_dest = 0;
+    lr_dest = 0;
+  }
   modSpeed();
 
   delay(delaySpeed);
