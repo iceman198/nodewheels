@@ -20,7 +20,7 @@ bool ledOn = false;
 int mycounter = 0;
 int webSendDelay = 5000;
 bool clientConnected = false;
-bool voltageGood = false;
+bool voltageGood = true;
 bool serialMsgSent = true;
 
 float goodVoltage = 11.50;
@@ -53,7 +53,8 @@ int lr_dest = 0;
 //int max_speed = 512;
 //int max_speed = 767;
 int fastSpeed = 800;
-int slowSpeed = 500;
+int mediumSpeed = 500;
+int slowSpeed = 300;
 int max_speed = slowSpeed;
 
 int delaySpeed = 1;
@@ -85,6 +86,9 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t *payload, int length)
     Serial.println("");
     if (fullpayload == "speedFast") {
       max_speed = fastSpeed;
+    }
+    if (fullpayload == "mediumSpeed") {
+      max_speed = mediumSpeed;
     }
     if (fullpayload == "speedSlow") {
       max_speed = slowSpeed;
