@@ -87,7 +87,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t *payload, int length)
     if (fullpayload == "speedFast") {
       max_speed = fastSpeed;
     }
-    if (fullpayload == "mediumSpeed") {
+    if (fullpayload == "speedMedium") {
       max_speed = mediumSpeed;
     }
     if (fullpayload == "speedSlow") {
