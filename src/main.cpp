@@ -21,9 +21,10 @@ int mycounter = 0;
 int webSendDelay = 5000;
 bool clientConnected = false;
 bool voltageGood = true;
+int voltageCount = 0;
 bool serialMsgSent = true;
 
-float goodVoltage = 11.50;
+float goodVoltage = 11.00;
 
 // 15 works on 3.3v
 // 10, 12, 13, 14 work when on ground
@@ -191,9 +192,14 @@ void readVoltage() {
 
   if (v3 > goodVoltage) {
     voltageGood = true;
+    voltageCount = 0;
     Serial.println("Voltage is good");
   } else {
-    voltageGood = false;
+    voltageCount++;
+    if (voltageCount > 3) {
+      voltageGood = false;
+      Serial.println("Voltage flagged as BAAAD");
+    }
     Serial.println("Voltage is BAAAD");
   }
 
