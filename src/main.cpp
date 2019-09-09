@@ -10,7 +10,7 @@
 
 //Hotspot Name and Password
 const char *ssid = "dwheels";
-const char *password = "2076192651";
+const char *password = "1231231234";
 
 WebSocketsServer webSocket = WebSocketsServer(8181);
 ESP8266WebServer server(80);
