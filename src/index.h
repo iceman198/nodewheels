@@ -2,6 +2,7 @@
 const char MAIN_page[] PROGMEM = R"=====(
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 		<title>DWheels Controler</title>
 		<script type = "text/javascript">
 			var ws;
@@ -60,6 +61,9 @@ const char MAIN_page[] PROGMEM = R"=====(
 			function speedFast() {
 				ws.send('speedFast');
 			}
+			function speedMedium() {
+				ws.send('speedMedium');
+			}
 			function speedSlow() {
 				ws.send('speedSlow');
 			}
@@ -79,6 +83,7 @@ const char MAIN_page[] PROGMEM = R"=====(
 		<hr>
 		<form action="">
 			<input type="radio" onclick="speedSlow()" name="speed" value="slow" checked>Slow 
+			<input type="radio" onclick="speedMedium()" name="speed" value="fast">Medium
 			<input type="radio" onclick="speedFast()" name="speed" value="fast">Fast
 		</form>
 		<hr>
