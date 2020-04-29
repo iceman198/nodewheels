@@ -24,7 +24,7 @@ bool voltageGood = true;
 int voltageCount = 0;
 bool serialMsgSent = true;
 
-float goodVoltage = 11.00;
+float goodVoltage = 9.00;
 
 // 15 works on 3.3v
 // 10, 12, 13, 14 work when on ground
