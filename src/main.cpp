@@ -18,7 +18,7 @@ ESP8266WebServer server(80);
 int ledPin = 16; //0 is the built in RED LED on the NodeMCU...but when we use the arduino libraries, the pin numbers are different so it is 16 in this case
 bool ledOn = false;
 int mycounter = 0;
-int webSendDelay = 5000;
+int webSendDelay = 2000;
 bool clientConnected = false;
 bool voltageGood = true;
 int voltageCount = 0;
@@ -53,12 +53,12 @@ int lr_dest = 0;
 
 //int max_speed = 512;
 //int max_speed = 767;
-int fastSpeed = 800;
-int mediumSpeed = 500;
+int fastSpeed = 900;
+int mediumSpeed = 600;
 int slowSpeed = 300;
-int max_speed = slowSpeed;
+int max_speed = mediumSpeed;
 
-int delaySpeed = 1;
+int delaySpeed = 2;
 //int delaySpeed = 1000;
 
 void handleRoot()
@@ -265,29 +265,29 @@ void checkButtons()
   Serial.println(digitalRead(LEFT_R_PIN));
   */
 
-  if (digitalRead(LEFT_R_PIN) == 1) {
+  if (digitalRead(LEFT_R_PIN) == 0) {
     lr_dest = max_speed;
   }
-  if (digitalRead(LEFT_R_PIN) == 0) {
+  if (digitalRead(LEFT_R_PIN) == 1) {
     lr_dest = 0;
   }
-  if (digitalRead(LEFT_F_PIN) == 1) {
+  if (digitalRead(LEFT_F_PIN) == 0) {
     lf_dest = max_speed;
   }
-  if (digitalRead(LEFT_F_PIN) == 0) {
+  if (digitalRead(LEFT_F_PIN) == 1) {
     lf_dest = 0;
   }
 
-  if (digitalRead(RIGHT_R_PIN) == 1) {
+  if (digitalRead(RIGHT_R_PIN) == 0) {
     rr_dest = max_speed;
   }
-  if (digitalRead(RIGHT_R_PIN) == 0) {
+  if (digitalRead(RIGHT_R_PIN) == 1) {
     rr_dest = 0;
   }
-  if (digitalRead(RIGHT_F_PIN) == 1) {
+  if (digitalRead(RIGHT_F_PIN) == 0) {
     rf_dest = max_speed;
   }
-  if (digitalRead(RIGHT_F_PIN) == 0) {
+  if (digitalRead(RIGHT_F_PIN) == 1) {
     rf_dest = 0;
   }
 

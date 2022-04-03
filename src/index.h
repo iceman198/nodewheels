@@ -76,9 +76,9 @@ const char MAIN_page[] PROGMEM = R"=====(
 		<button onclick="socketSend()">Send test</button>
 		<hr>
 		<table border=1>
-			<tr><td>&nbsp;</td><td><button style="width:100%;" onclick="goForward()">Forward</button></td><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><button style="width:100%;" onclick="goForward()">Forward</button></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
 			<tr><td><button style="width:100%;" onclick="goLeft()">Left</button></td><td><button style="width:100%;" onclick="goStop()">STOP</button></td><td><button style="width:100%;" onclick="goRight()">Right</button></td></tr>
-			<tr><td>&nbsp;</td><td><button style="width:100%;" onclick="goBackward()">Backwards</button></td><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><button style="width:100%;" onclick="goBackward()">Backwards</button></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
 		</table>
 		<hr>
 		<form action="">
