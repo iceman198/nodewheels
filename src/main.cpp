@@ -18,6 +18,7 @@ ESP8266WebServer server(80);
 int ledPin = 16; //0 is the built in RED LED on the NodeMCU...but when we use the arduino libraries, the pin numbers are different so it is 16 in this case
 bool ledOn = false;
 int mycounter = 0;
+//int motorCounter = 0;
 int webSendDelay = 2000;
 bool clientConnected = false;
 bool voltageGood = true;
@@ -56,9 +57,10 @@ int lr_dest = 0;
 int fastSpeed = 900;
 int mediumSpeed = 600;
 int slowSpeed = 300;
-int max_speed = mediumSpeed;
+int max_speed = slowSpeed;
 
-int delaySpeed = 2;
+int delaySpeed = 1;
+//int motorDelay = 1;
 //int delaySpeed = 1000;
 
 void handleRoot()
@@ -445,7 +447,12 @@ void loop()
     lf_dest = 0;
     lr_dest = 0;
   }
-  modSpeed();
+
+  //if (motorCounter > motorDelay) {
+    modSpeed();
+    //motorCounter = 0;
+  //}
+  //motorCounter++;
 
   delay(delaySpeed);
 }
